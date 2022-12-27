@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const zafer = {
+        name: "Zafer",
+        age: 25,
+        address: "Istanbul",
+        isMarried: false,
+      };
+
+      const ali = {
+        name: "Ali",
+        age: 30,
+        address: "Ankara",
+        isMarried: true,
+      };
+      const mehmet = {
+        name: "Mehmet",
+        age: 35,
+        address: "Izmir",
+        isMarried: true,
+      };
+      const hatice = {
+        name: "Hatice",
+        age: 23,
+        address: "Gaziantep",
+        isMarried: true,
+      };
+
+      const people = [zafer, ali, mehmet, hatice];
+
+      const evliler = people
+        .filter((person) => person.isMarried === true)
+        .filter((x) => x.age > 25)
+        .map((x) => {
+          return {
+            name: x.name,
+            age: x.age,
+          };
+        });
+      document.write(JSON.stringify(evliler, null, 2));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="myForm" action="" method="POST" onsubmit="sayilariBul(event)">
+      <label for="number1">Sayı 1: </label>
+      <input type="number" name="number1" /> <br /><br />
+      <label for="number2">Sayı 2: </label>
+      <input type="number" name="number2" /> <br /><br />
+      <input type="submit" value="Bul" />
+    </form>
+
+    <hr />
+
+    <p>7'ye tam bölünenler: <span id="bolunenler"></span></p>
+
+    <script>
+      function sayilariBul(event) {
+        event.preventDefault();
+
+        const form = document.getElementById("myForm");
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        const sayi1 = data.number1;
+        const sayi2 = data.number2;
+
+        const bolunenler = document.getElementById("bolunenler");
+
+        const yediyeBolunenler = [];
+        for (let i = sayi1; i <= sayi2; i++) {
+          if (i % 7 === 0) {
+            yediyeBolunenler.push(i);
+          }
+        }
+        bolunenler.innerHTML = `Zafer: ${yediyeBolunenler}`;
+      }
+    </script>
+  </body>
+</html>
